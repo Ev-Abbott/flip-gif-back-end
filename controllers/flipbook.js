@@ -12,7 +12,7 @@ function getFlipbookByName (req, res, next) {
 }
 
 function getFrameById (req, res, next) {
-    return model.flipbook.getFrameById(req.params.frame_id)
+    return model.flipbook.getFrameById(req.params.name, req.params.frame_index)
         .then(frame => {
             res.status(200).json({ data: frame });
         })
@@ -34,7 +34,7 @@ function createNewFrame(req, res, next) {
 }
 
 function updateFrame(req, res, next) {
-    return model.flipbook.createNewFrame(req.params.name, req.body, req.params.frame_id)
+    return model.flipbook.createNewFrame(req.params.name, req.body, req.params.frame_index)
         .then(frame => {
             res.status(200).json({ data: frame[0] });
         })
@@ -45,7 +45,7 @@ function updateFrame(req, res, next) {
 }
 
 function deleteFrameById(req, res, next) {
-    return model.flipbook.deleteFrameById(req.params.name, req.params.frame_id)
+    return model.flipbook.deleteFrameById(req.params.name, req.params.frame_index)
         .then(frame => {
             res.status(200).json({ data: frame });
         })
