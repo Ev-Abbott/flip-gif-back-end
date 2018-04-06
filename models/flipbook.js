@@ -16,11 +16,16 @@ function getFrameById (name, frame_index) {
         })
 }
 
-function updateFrame(flipbookName, requestBody, frame_index) {
-    // return knex('frames')
-    //     .where({ id: frame_id })
-    //     .update(requestBody)
-    //     .returning('*');
+function updateFrame(flipbookName, imgURL, frame_index) {
+    console.log(imgURL);
+    return getFlipbookByName(flipbookName)
+        .then(flipbook => {
+            return knex('frames')
+                .where({ flipbook_id: flipbook.id })
+                .andWhere({ index: frame_index })
+                .update({ imgURL: imgURL })
+                .returning('*');
+        })
 }
 
 function createNewFrame (flipbookName, requestBody) {

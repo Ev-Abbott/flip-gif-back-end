@@ -34,7 +34,8 @@ function createNewFrame(req, res, next) {
 }
 
 function updateFrame(req, res, next) {
-    return model.flipbook.createNewFrame(req.params.name, req.body, req.params.frame_index)
+    console.log(req);
+    return model.flipbook.updateFrame(req.params.name, req.body.imgURL, req.params.frame_index)
         .then(frame => {
             res.status(200).json({ data: frame[0] });
         })
