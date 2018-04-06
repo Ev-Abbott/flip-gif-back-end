@@ -9,10 +9,12 @@ const morgan = require('morgan');
 require('dotenv').config();
 
 app.use(cors({ exposedHeaders: 'Auth' }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(morgan('dev'));
 
+const routes = require('./routes');
 // Include routes here
+app.use('/flipbooks', routes.flipbook);
 
 app.use((err, req, res, next) => {
     const status = err.status || 500;
