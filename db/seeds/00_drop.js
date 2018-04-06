@@ -4,5 +4,8 @@ exports.seed = function(knex, Promise) {
   return knex('frames').del()
     .then(() => {
       return knex('flipbooks').del();
-    });
+    })
+    .then(() => {
+      return knex('users').del();
+    })
 };
