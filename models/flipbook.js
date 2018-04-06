@@ -45,25 +45,15 @@ function deleteFrameById(flipbookName, frame_index) {
         .then(flipbook => {
             flipbookId = flipbook.id;
             return knex('frames')
-                .where({ flipbook_id: flipbook.id })
+                .where({ flipbook_id: flipbookId })
                 .andWhere({ index: frame_index })
                 .del()
                 .returning('*');
+            
         })
         .then(res => {
-            return updateIndexesOfFramesDel(flipbook.id, frame_index+1);
-        });
-}
-
-function updateIndexesOfFramesDel(flipbook_id, frame_index) {
-    return knex('frames')
-        .where({ flipbook_id: flipbook_id })
-        .andWhere({ index: frame_index })
-        .update({ index: frame_index-1 })
-        .returning('*')
-        .then(frame => {
-            if (frame.length) return updateIndexesOfFramesDel(flipbook_id, frame_index+1);
-            return;
+            return knex.raw(
+                `UPDATE frames SET index = index - 1 WHERE flipbook_id = ${flipbookId} AND index > ${frame_index}`);
         });
 }
 

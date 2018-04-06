@@ -47,7 +47,7 @@ function updateFrame(req, res, next) {
 function deleteFrameById(req, res, next) {
     return model.flipbook.deleteFrameById(req.params.name, req.params.frame_index)
         .then(frame => {
-            res.status(200).json({ data: frame });
+            res.status(200).json({ data: frame[0] });
         })
         .catch(err => {
             console.log(err);
