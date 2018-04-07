@@ -26,7 +26,7 @@ function getFlipbookByName (req, res, next) {
 // Frame Related Controllers
 
 function getFrameById (req, res, next) {
-    return model.flipbook.getFrameById(req.params.name, req.params.frame_index)
+    return model.flipbook.getFrameById(req.params.name, req.params.frame_index, req.query.lightBox)
         .then(frame => {
             res.status(200).json({ data: frame });
         })

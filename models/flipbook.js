@@ -1,4 +1,8 @@
 const knex = require('../db/knex');
+const Canvas = require('canvas');
+const canvas = new Canvas(370, 370);
+const ctx = canvas.getContext('2d');
+const Image = Canvas.Image;
 
 function getAllFlipbooksByQuery (queryObj) {
     let { user_id, searchStr } = queryObj;
@@ -16,14 +20,44 @@ function getFlipbookByName (name) {
         .first();
 }
 
-function getFrameById (name, frame_index) {
-    return getFlipbookByName(name)
-        .then(flipbook => {
-            return knex('frames')
-                .where({ flipbook_id: flipbook.id })
-                .andWhere({ index: frame_index })
-                .first();
-        })
+function getFrameById (name, frame_index, lightBox) {
+    if (lightBox) {
+        return getFlipbookByName(name)
+            .then(flipbook => {
+                return knex('frames')
+                    .where({ flipbook_id: flipbook.id })
+                    // .andWhere('index', frame_index)
+                    .andWhere('index', '<', frame_index+lightBox)
+                    .andWhere('index', '>', frame_index-lightBox)
+                    .returning('*');
+                    
+            }) 
+            .then(frames => {
+                return frames.filter(frame => {
+                    let baseIndex = parseInt(frame_index);
+                    if (frame.index !== baseIndex) {
+                        let alphaFactor = 0.1 * Math.abs(baseIndex - frame.index);
+                        ctx.globalAlpha = 0.6 - alphaFactor;
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        const img = new Image;
+                        img.src = frame.imgURL;
+                        ctx.drawImage(img, 0, 0, 370, 370);
+                        let data = canvas.toDataURL();
+                        console.log('Frame: ', data);
+                        frame.imgURL = data;
+                        return frame;
+                    }
+                })
+            })
+    } else {
+        return getFlipbookByName(name)
+            .then(flipbook => {
+                return knex('frames')
+                    .where({ flipbook_id: flipbook.id })
+                    .andWhere({ index: frame_index })
+                    .first();
+            })
+    }
 }
 
 function updateFrame(flipbookName, imgURL, frame_index) {
