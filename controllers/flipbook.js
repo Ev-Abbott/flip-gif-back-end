@@ -23,6 +23,26 @@ function getFlipbookByName (req, res, next) {
         });
 }
 
+function createNewFlipbook (req, res, next) {
+    return model.flipbook.createNewFlipbook(req.body)
+        .then(flipbook => {
+            res.status(200).json({ data: flipbook});
+        })
+        .catch(err => {
+            next({ status: 500, message: 'Internal Server Error', error: err });
+        })
+}
+
+function deleteFlipbook (req, res, next) {
+    return model.flipbook.deleteFlipbook(req.params.name)
+        .then(flipbook => {
+            res.status(200).json({ data: flipbook});
+        })
+        .catch(err => {
+            next({ status: 500, message: 'Internal Server Error', error: err });
+        })
+}
+
 function createNewGifFromFlipbook (req, res, next) {
     return model.flipbook.getAllFramesByFlipBook(req.params.name)
         .then(gifInfo => {
@@ -88,5 +108,7 @@ module.exports = {
     deleteFrameById,
     getAllFlipbooksByQuery,
     getFlipbookByName,
-    createNewGifFromFlipbook
+    createNewGifFromFlipbook,
+    createNewFlipbook,
+    deleteFlipbook
 };

@@ -5,6 +5,8 @@ const router = express.Router();
 // Flipbook Related Info
 router.get('/', controller.flipbook.getAllFlipbooksByQuery);
 router.get('/:name', controller.flipbook.getFlipbookByName);
+router.post('/', controller.flipbook.createNewFlipbook);
+router.delete('/:name', controller.flipbook.deleteFlipbook);
 router.post('/:name/createGif', controller.flipbook.createNewGifFromFlipbook)
 
 // Frame related info

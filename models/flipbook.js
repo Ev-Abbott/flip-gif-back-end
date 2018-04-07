@@ -22,6 +22,25 @@ function getFlipbookByName (name) {
         .first();
 }
 
+function createNewFlipbook (reqBody) {
+    return knex('flipbooks')
+        .where({ user_id: reqBody.user_id})
+        .insert(reqBody)
+        .returning('*');
+}
+
+function deleteFlipbook (name) {
+    return getFlipbookByName(name)
+        .then(flipbook => {
+            let user_id = flipbook.user_id;
+            return knex('flipbooks')
+                .where({ name: name })
+                .andWhere({ user_id: user_id})
+                .del()
+                .returning('*');
+        })
+}
+
 function getAllFramesByFlipBook (name) {
     return getFlipbookByName(name)
         .then(flipbook => {
@@ -129,5 +148,7 @@ module.exports = {
     updateFrame,
     deleteFrameById,
     getFlipbookByName,
-    getAllFlipbooksByQuery
+    getAllFlipbooksByQuery,
+    createNewFlipbook,
+    deleteFlipbook
 };
