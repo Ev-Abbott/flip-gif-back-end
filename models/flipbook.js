@@ -3,6 +3,8 @@ const Canvas = require('canvas');
 const canvas = new Canvas(370, 370);
 const ctx = canvas.getContext('2d');
 const Image = Canvas.Image;
+const axios = require('axios');
+const BaseURL = `http://localhost:8000/`;
 
 function getAllFlipbooksByQuery (queryObj) {
     let { user_id, searchStr } = queryObj;
@@ -18,6 +20,20 @@ function getFlipbookByName (name) {
     return knex('flipbooks')
         .where({ name: name })
         .first();
+}
+
+function getAllFramesByFlipBook (name) {
+    return getFlipbookByName(name)
+        .then(flipbook => {
+            return knex('frames')
+                .where({ flipbook_id: flipbook.id })
+                .orderBy('index', 'asc')
+        })
+        .then(frames => {
+            // do axios stuff
+            axios.post(BaseURL, { name, frames } );
+            return frames;
+        })
 }
 
 function getFrameById (name, frame_index, lightBox) {
@@ -108,6 +124,7 @@ function deleteFrameById(flipbookName, frame_index) {
 
 module.exports = {
     getFrameById,
+    getAllFramesByFlipBook,
     createNewFrame,
     updateFrame,
     deleteFrameById,

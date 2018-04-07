@@ -23,6 +23,17 @@ function getFlipbookByName (req, res, next) {
         });
 }
 
+function createNewGifFromFlipbook (req, res, next) {
+    return model.flipbook.getAllFramesByFlipBook(req.params.name)
+        .then(gifInfo => {
+            res.status(200).json({ data: gifInfo });
+        })
+        .catch(err => {
+            next({ status: 500, message: 'Internal Server Error', error: err });
+        })
+}
+
+
 // Frame Related Controllers
 
 function getFrameById (req, res, next) {
@@ -76,5 +87,6 @@ module.exports = {
     updateFrame,
     deleteFrameById,
     getAllFlipbooksByQuery,
-    getFlipbookByName
+    getFlipbookByName,
+    createNewGifFromFlipbook
 };

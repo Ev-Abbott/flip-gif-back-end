@@ -2,8 +2,10 @@ const express = require('express');
 const controller = require('../controllers');
 const router = express.Router();
 
+// Flipbook Related Info
 router.get('/', controller.flipbook.getAllFlipbooksByQuery);
 router.get('/:name', controller.flipbook.getFlipbookByName);
+router.post('/:name/createGif', controller.flipbook.createNewGifFromFlipbook)
 
 // Frame related info
 router.get('/:name/frames/:frame_index', controller.flipbook.getFrameById);
