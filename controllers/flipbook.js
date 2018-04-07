@@ -1,5 +1,17 @@
 const model = require ('../models');
 
+// Flipbook related controllers
+
+function getAllFlipbooksByQuery (req, res, next) {
+    return model.flipbook.getAllFlipbooksByQuery(req.query)
+        .then(flipbooks => {
+            res.status(200).json({ data: flipbooks });
+        })
+        .catch(err => {
+            next({ status: 500, message: 'Internal Server Error', error: err });
+        })
+}
+
 function getFlipbookByName (req, res, next) {
     return model.flipbook.getFlipbookByName(req.params.name)
         .then(flipbook => {
@@ -10,6 +22,8 @@ function getFlipbookByName (req, res, next) {
             next({ status: 500, message: 'Internal Server Error', error: err });
         });
 }
+
+// Frame Related Controllers
 
 function getFrameById (req, res, next) {
     return model.flipbook.getFrameById(req.params.name, req.params.frame_index)
@@ -61,5 +75,6 @@ module.exports = {
     createNewFrame,
     updateFrame,
     deleteFrameById,
+    getAllFlipbooksByQuery,
     getFlipbookByName
 };

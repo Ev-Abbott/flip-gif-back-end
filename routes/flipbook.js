@@ -2,7 +2,7 @@ const express = require('express');
 const controller = require('../controllers');
 const router = express.Router();
 
-
+router.get('/', controller.flipbook.getAllFlipbooksByQuery);
 router.get('/:name', controller.flipbook.getFlipbookByName);
 
 // Frame related info

@@ -1,5 +1,15 @@
 const knex = require('../db/knex');
 
+function getAllFlipbooksByQuery (queryObj) {
+    let { user_id, searchStr } = queryObj;
+    if (user_id) {
+        return knex('flipbooks')
+            .where({ user_id: user_id})
+            .returning('*');
+    }
+    return [];
+}
+
 function getFlipbookByName (name) {
     return knex('flipbooks')
         .where({ name: name })
@@ -67,5 +77,6 @@ module.exports = {
     createNewFrame,
     updateFrame,
     deleteFrameById,
-    getFlipbookByName
+    getFlipbookByName,
+    getAllFlipbooksByQuery
 };
