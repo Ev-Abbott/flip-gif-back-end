@@ -1,3 +1,4 @@
 module.exports = {
-    flipbook : require('./flipbook')
+    flipbook : require('./flipbook'),
+    users: require('./users')
 }

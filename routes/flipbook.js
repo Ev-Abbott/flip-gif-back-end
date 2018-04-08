@@ -15,6 +15,4 @@ router.post('/:name/frames', controller.flipbook.createNewFrame);
 router.patch('/:name/frames/:frame_index', controller.flipbook.updateFrame);
 router.delete('/:name/frames/:frame_index', controller.flipbook.deleteFrameById);
 
-
-
 module.exports = router;

@@ -4,16 +4,16 @@ const port = process.env.PORT || 8080;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const routes = require('./routes');
 
 // Sets up enviroment variables for config
 require('dotenv').config();
 
-app.use(cors({ exposedHeaders: 'Auth' }));
 app.use(bodyParser.json({ limit: '50mb' }));
+app.use(cors({ exposedHeaders: 'Auth' }));
 app.use(morgan('dev'));
 
-const routes = require('./routes');
-// Include routes here
+app.use('/users', routes.users);
 app.use('/flipbooks', routes.flipbook);
 
 app.use((err, req, res, next) => {
