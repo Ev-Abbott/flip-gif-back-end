@@ -36,6 +36,7 @@ function login (email, password) {
         .then(passwordIsValid => {
             if (!passwordIsValid) throw 'Invalid password provided';
             claim = { user_id: validUser.id };
+            const token = jwt.sign(claim, process.env.JWT_SECRET, { expiresIn: Date.now() + 2419200 });
             return knex('flipbooks')
                 .where('user_id', validUser.id);
          });

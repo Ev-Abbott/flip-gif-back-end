@@ -49,9 +49,11 @@ function getAllFramesByFlipBook (name) {
                 .orderBy('index', 'asc')
         })
         .then(frames => {
-            // do axios stuff
-            axios.post(BaseURL, { name, frames } );
-            return frames;
+            return axios.post(BaseURL, { name, frames } )
+        })
+        .then(res => {
+            console.log(res.data);
+            return res.data;
         })
 }
 
