@@ -78,9 +78,8 @@ function getFrameById (name, frame_index, lightBox) {
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                         const img = new Image;
                         img.src = frame.imgURL;
-                        ctx.drawImage(img, 0, 0, 370, 370);
+                        ctx.drawImage(img, 0, 0, 600, 600);
                         let data = canvas.toDataURL();
-                        console.log('Frame: ', data);
                         frame.imgURL = data;
                         return frame;
                     }
