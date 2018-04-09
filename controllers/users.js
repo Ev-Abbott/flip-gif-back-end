@@ -3,8 +3,8 @@ const model = require ('../models');
 function login (req, res, next) {
     let { username, password } = req.body;
     return model.users.login(username, password)
-        .then(tokenPkg => {
-            return res.set('Auth', `Bearer: ${tokenPkg.token}`).send({ message: 'Login Successful', claim: tokenPkg.claim });
+        .then(payload => {
+            return res.set('Auth', `Bearer: ${payload.token}`).send({ message: 'Login Successful', flipbook: payload.flipbook });
         })
         .catch(err => {
             return next({ status: 403, message: err });

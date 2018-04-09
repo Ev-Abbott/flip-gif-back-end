@@ -27,7 +27,7 @@ function signup(user) {
          })
         .then(userReturned => {
             id = userReturned[0].id;
-            return login(user.username, oldPass);
+            return loginAtSignup(user.username, oldPass);
         })
         .then(tokenReturned => {
             token = tokenReturned;
@@ -42,7 +42,7 @@ function signup(user) {
 
 }
 
-function login (username, password) {
+function loginAtSignup (username, password) {
     let validUser;
     let claim;
     return getUserByUsername(username)
@@ -57,6 +57,31 @@ function login (username, password) {
             const token = jwt.sign(claim, process.env.JWT_SECRET, { expiresIn: Date.now() + 2419200 });
             return { token };
          });
+}
+
+function login (username, password) {
+    let validUser;
+    let claim;
+    let tokenToSend;
+    return getUserByUsername(username)
+        .then(user => {
+            if (!user) throw 'Please enter a valid username';
+            validUser = user;
+            return bcrypt.compare(password, user.password);
+        }) 
+        .then(passwordIsValid => {
+            if (!passwordIsValid) throw 'Invalid password provided';
+            claim = { user_id: validUser.id };
+            const token = jwt.sign(claim, process.env.JWT_SECRET, { expiresIn: Date.now() + 2419200 });
+            tokenToSend = token;
+            return knex('flipbooks')
+                .where({ user_id: validUser.id })
+                .returning('*')
+                .first()
+         })
+        .then(flipbook => {
+            return { token: tokenToSend, flipbook };
+        });
 }
 
 module.exports = {
