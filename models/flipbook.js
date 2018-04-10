@@ -16,10 +16,23 @@ function getAllFlipbooksByQuery (queryObj) {
     return [];
 }
 
-function getFlipbookByName (name) {
+function getFlipbookByName (name, queryObj) {
+    let { frameCnt } = queryObj;
+    
+    if (frameCnt) {
+        return knex('flipbooks')
+            .where({ name: name })
+            .first()
+            .then(flipbook => {
+                return knex('frames')
+                    .where({ flipbook_id: flipbook.id })
+                    .max('index');
+            });
+    }
     return knex('flipbooks')
         .where({ name: name })
         .first();
+    
 }
 
 function createNewFlipbook (reqBody) {
