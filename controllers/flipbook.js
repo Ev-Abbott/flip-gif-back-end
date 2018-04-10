@@ -13,7 +13,7 @@ function getAllFlipbooksByQuery (req, res, next) {
 }
 
 function getFlipbookByName (req, res, next) {
-    return model.flipbook.getFlipbookByName(req.params.name, req.query)
+    return model.flipbook.getFlipbookByName(req.params.name, req.query.frameCnt)
         .then(flipbook => {
             if (Array.isArray(flipbook)){
                 res.status(200).json({ data: flipbook[0] });
@@ -63,7 +63,6 @@ function createNewGifFromFlipbook (req, res, next) {
 function getFrameById (req, res, next) {
     return model.flipbook.getFrameById(req.params.name, req.params.frame_index, req.query.lightBox)
         .then(frame => {
-            
             res.status(200).json({ data: frame });
         })
         .catch(err => {

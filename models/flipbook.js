@@ -1,12 +1,13 @@
 const knex = require('../db/knex');
 const Canvas = require('canvas');
-const canvas = new Canvas(370, 370);
+const canvas = new Canvas(600, 600);
 const ctx = canvas.getContext('2d');
 const Image = Canvas.Image;
 const axios = require('axios');
 const BaseURL = `http://localhost:8000/`;
 
 function getAllFlipbooksByQuery (queryObj) {
+
     let { user_id, searchStr } = queryObj;
     if (user_id) {
         return knex('flipbooks')
@@ -16,8 +17,7 @@ function getAllFlipbooksByQuery (queryObj) {
     return [];
 }
 
-function getFlipbookByName (name, queryObj) {
-    let { frameCnt } = queryObj;
+function getFlipbookByName (name, frameCnt) {
     
     if (frameCnt) {
         return knex('flipbooks')
@@ -94,6 +94,7 @@ function getFrameById (name, frame_index, lightBox) {
                         ctx.drawImage(img, 0, 0, 600, 600);
                         let data = canvas.toDataURL();
                         frame.imgURL = data;
+                        console.log(data);
                         return frame;
                     }
                 })
@@ -110,7 +111,7 @@ function getFrameById (name, frame_index, lightBox) {
 }
 
 function updateFrame(flipbookName, imgURL, frame_index) {
-    console.log(imgURL);
+    
     return getFlipbookByName(flipbookName)
         .then(flipbook => {
             return knex('frames')
