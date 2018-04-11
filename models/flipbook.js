@@ -65,8 +65,10 @@ function getAllFramesByFlipBook (name) {
             return axios.post(BaseURL, { name, frames } )
         })
         .then(res => {
-            console.log(res.data);
-            return res.data;
+            return knex('flipbooks')
+                .where({ name: name })
+                .update({ gifURL: res.data.link})
+                .returning('*');
         })
 }
 

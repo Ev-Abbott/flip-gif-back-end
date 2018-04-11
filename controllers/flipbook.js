@@ -50,7 +50,7 @@ function deleteFlipbook (req, res, next) {
 function createNewGifFromFlipbook (req, res, next) {
     return model.flipbook.getAllFramesByFlipBook(req.params.name)
         .then(gifInfo => {
-            res.status(200).json({ data: gifInfo });
+            res.status(200).json({ data: gifInfo[0] });
         })
         .catch(err => {
             next({ status: 500, message: 'Internal Server Error', error: err });
