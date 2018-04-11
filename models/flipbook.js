@@ -74,16 +74,21 @@ function getFrameById (name, frame_index, lightBox) {
     if (lightBox) {
         return getFlipbookByName(name)
             .then(flipbook => {
+                let frame_indexParse = parseInt(frame_index);
+                let lightBoxParse = parseInt(lightBox);
+                
                 return knex('frames')
                     .where({ flipbook_id: flipbook.id })
                     // .andWhere('index', frame_index)
-                    .andWhere('index', '<', frame_index+lightBox)
-                    .andWhere('index', '>', frame_index-lightBox)
+                    .andWhere('index', '<', frame_indexParse+lightBoxParse+1)
+                    .andWhere('index', '>', frame_indexParse-lightBoxParse-1)
                     .returning('*');
                     
             }) 
             .then(frames => {
+                
                 return frames.filter(frame => {
+                    console.log(frame.index);
                     let baseIndex = parseInt(frame_index);
                     if (frame.index !== baseIndex) {
                         let alphaFactor = 0.1 * Math.abs(baseIndex - frame.index);
@@ -94,7 +99,7 @@ function getFrameById (name, frame_index, lightBox) {
                         ctx.drawImage(img, 0, 0, 600, 600);
                         let data = canvas.toDataURL();
                         frame.imgURL = data;
-                        console.log(data);
+                        
                         return frame;
                     }
                 })
