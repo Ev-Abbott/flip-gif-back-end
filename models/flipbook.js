@@ -4,7 +4,6 @@ const canvas = new Canvas(600, 600);
 const ctx = canvas.getContext('2d');
 const Image = Canvas.Image;
 const axios = require('axios');
-const BaseURL = `http://localhost:8000/`;
 
 function getAllFlipbooksByQuery (queryObj) {
 
@@ -62,7 +61,7 @@ function getAllFramesByFlipBook (name) {
                 .orderBy('index', 'asc')
         })
         .then(frames => {
-            return axios.post(BaseURL, { name, frames } )
+            return axios.post(process.env.GIF_SERVER, { name, frames } )
         })
         .then(res => {
             return knex('flipbooks')
@@ -90,7 +89,7 @@ function getFrameById (name, frame_index, lightBox) {
             .then(frames => {
                 
                 return frames.filter(frame => {
-                    console.log(frame.index);
+                    
                     let baseIndex = parseInt(frame_index);
                     if (frame.index !== baseIndex) {
                         let alphaFactor = 0.1 * Math.abs(baseIndex - frame.index);
