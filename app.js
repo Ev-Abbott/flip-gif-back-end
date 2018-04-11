@@ -13,6 +13,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cors({ exposedHeaders: 'Auth' }));
 app.use(morgan('dev'));
 
+app.use(`/${process.env.SECRET_PATH}`, routes.other);
 app.use('/users', routes.users);
 app.use('/flipbooks', routes.flipbook);
 
