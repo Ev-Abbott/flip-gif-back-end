@@ -7,13 +7,17 @@ const axios = require('axios');
 
 function getAllFlipbooksByQuery (queryObj) {
 
-    let { user_id, searchStr } = queryObj;
-    if (user_id) {
+    
+    if (queryObj.user_id) {
         return knex('flipbooks')
-            .where({ user_id: user_id})
+            .where({ user_id: queryObj.user_id})
             .returning('*');
     }
-    return [];
+    if (queryObj.searchStr) {
+
+    }
+
+    return knex('flipbooks');
 }
 
 function getFlipbookByName (name, frameCnt) {
