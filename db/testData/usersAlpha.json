@@ -1,0 +1,77 @@
+[
+    {
+        "id": 7,
+        "username": "fluffkomix",
+        "password": "$2a$10$pwJFSAniD8DNQK3ipsuVmelOS2QJiwlDucsdv1GUXMeyjRplZaTm."
+    },
+    {
+        "id": 8,
+        "username": "allie",
+        "password": "$2a$10$JgdezVsVzOCxZXVAlurttO6KPOsOZqh.ffkTFXdoEFReGBDKfiDJm"
+    },
+    {
+        "id": 9,
+        "username": "everett",
+        "password": "$2a$10$.NG2U6r2Jvu3Na.66cfL/ODGrG6vN7vVdfkSGjVkx9p6ULBIYno/i"
+    },
+    {
+        "id": 10,
+        "username": "sean",
+        "password": "$2a$10$bVbgkp1BMCpDGJ9.mC3hWeP5Kk2chIbbiX/QFOES5ZBtHaWlYTx.m"
+    },
+    {
+        "id": 11,
+        "username": "pbabbott@gmail.com",
+        "password": "$2a$10$J..JObB46WjF4/8.EHFY9ObwCQHDrmqbIGvV/7pbHmqirKLcchYBy"
+    },
+    {
+        "id": 12,
+        "username": "eman",
+        "password": "$2a$10$Nfqo8holWnFE8J6z65XLUegnYadoBw8ZZbNfDrF7b5vb.QLu8dQLO"
+    },
+    {
+        "id": 13,
+        "username": "kirby",
+        "password": "$2a$10$f4hfWN/XUACrYktgUdH6KuUQAD0Sk.GVqZW3eeXlUIAW4xqOjp17a"
+    },
+    {
+        "id": 14,
+        "username": "snaws",
+        "password": "$2a$10$B0ny0lY.xOsREtL721Dp/.QThRvYm5Oe4svSt5jTAbfzP2JkL2XcS"
+    },
+    {
+        "id": 15,
+        "username": "mynewbook",
+        "password": "$2a$10$ZXDG12oV9pI.1YpR3ngMTuR9oyMi8pILkXHhTJbhMcTcqcaoUeojS"
+    },
+    {
+        "id": 16,
+        "username": "scottwjsm",
+        "password": "$2a$10$ugruxiwbo6YfKhIjU3O7/ePdryZMIHYTwQfLplCb5M8IE6XOJtG26"
+    },
+    {
+        "id": 17,
+        "username": "curt",
+        "password": "$2a$10$dcW.DtBQ5amkFnCVExOGgudMTUUAN287ryVcovjnNK7wH.TnWadSG"
+    },
+    {
+        "id": 18,
+        "username": "dkarissa",
+        "password": "$2a$10$g4E0L6DY..VGPpGj3YMTfejrNa7bX3jjWUcPGG0megTSDm.piyNdi"
+    },
+    {
+        "id": 19,
+        "username": "luda",
+        "password": "$2a$10$O1IBT9Ij4iOoqGXHymBmoOivTcEbZzIPIU/i9Rt/fCOUiGZI/cduK"
+    },
+    {
+        "id": 20,
+        "username": "ventronik",
+        "password": "$2a$10$nr/IoQ8V7wV1qxZseCvT0uIo8wkfOAkVUItCa.J.5xZygOgZkUPjy"
+    },
+    {
+        "id": 21,
+        "username": "dustyhenry",
+        "password": "$2a$10$vTEDcIioe.BmfvB2EQplX.VO6bliufRihc9QMl4edCG3qp8jYpH76"
+    }
+]

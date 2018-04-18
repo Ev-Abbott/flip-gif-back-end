@@ -1,4 +1,4 @@
-const flipbooks = require('../flipbooks.json');
+const flipbooks = require('../newFlipbooks.json');
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('flipbooks').del()

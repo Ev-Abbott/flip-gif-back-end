@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "username": "test",
+        "password": "$2a$10$LkTNN0dKtKxFC4NcmrHF8..QhRMZlxUqWLKylKc1HoLRS8J1McMYi"
+    },
+    {
+        "id": 2,
+        "username": "mysecondacct",
+        "password": "$2a$10$W0opMWu97klf4Z5Y8hqejeL7UvgxhiNh.3K96dQYhsLgkUjPfsEae"
+    },
+    {
+        "id": 3,
+        "username": "cool",
+        "password": "$2a$10$gHCIU5247zCbHuFtmpTaj.pbWYKnl3snCRC8iXANXpie.Yk8fKnsC"
+    },
+    {
+        "id": 4,
+        "username": "a",
+        "password": "$2a$10$Pd6jLitl3oINuac76UYpgOyMacIOL5J/YAARnKIEBeVvWTr45Tzom"
+    },
+    {
+        "id": 5,
+        "username": "b",
+        "password": "$2a$10$1xgFMKqvWA5OotOfvGXhm.mPUsw2yvC8U8X2tLfPIqZWWn.G1drAi"
+    },
+    {
+        "id": 6,
+        "username": "everett2",
+        "password": "$2a$10$V02ZW09.flZ1OFZnZWPS9OYK.gt6/ijTWZD3YbDiGfFbsLsp6c9YS"
+    }
+]

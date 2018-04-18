@@ -1,4 +1,4 @@
-const frames = require('../frames.json');
+const frames = require('../newFrames.json');
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries

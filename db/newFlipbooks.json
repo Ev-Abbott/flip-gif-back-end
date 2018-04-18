@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "name": "test_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/test_flipbook.gif",
+        "user_id": 1
+    },
+    {
+        "id": 2,
+        "name": "mysecondacct_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/mysecondacct_flipbook.gif",
+        "user_id": 2
+    },
+    {
+        "id": 3,
+        "name": "cool_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/cool_flipbook.gif",
+        "user_id": 3
+    },
+    {
+        "id": 4,
+        "name": "a_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/a_flipbook.gif",
+        "user_id": 4
+    },
+    {
+        "id": 5,
+        "name": "b_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/b_flipbook.gif",
+        "user_id": 5
+    },
+    {
+        "id": 6,
+        "name": "everett2_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/everett2_flipbook.gif",
+        "user_id": 6
+    },
+    {
+        "id": 7,
+        "name": "fluffkomix_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/fluffkomix_flipbook.gif",
+        "user_id": 7
+    },
+    {
+        "id": 8,
+        "name": "allie_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/allie_flipbook.gif",
+        "user_id": 8
+    },
+    {
+        "id": 9,
+        "name": "everett_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/everett_flipbook.gif",
+        "user_id": 9
+    },
+    {
+        "id": 10,
+        "name": "sean_flipbook",
+        "gifURL": null,
+        "user_id": 10
+    },
+    {
+        "id": 11,
+        "name": "pbabbott_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/pbabbott@gmail.com_flipbook.gif",
+        "user_id": 11
+    },
+    {
+        "id": 12,
+        "name": "eman_flipbook",
+        "gifURL": null,
+        "user_id": 12
+    },
+    {
+        "id": 13,
+        "name": "kirby_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/kirby_flipbook.gif",
+        "user_id": 13
+    },
+    {
+        "id": 14,
+        "name": "snaws_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/snaws_flipbook.gif",
+        "user_id": 14
+    },
+    {
+        "id": 15,
+        "name": "mynewbook_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/mynewbook_flipbook.gif",
+        "user_id": 15
+    },
+    {
+        "id": 16,
+        "name": "scottwjsm_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/scottwjsm_flipbook.gif",
+        "user_id": 16
+    },
+    {
+        "id": 17,
+        "name": "curt_flipbook",
+        "gifURL": null,
+        "user_id": 17
+    },
+    {
+        "id": 18,
+        "name": "dkarissa_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/dkarissa_flipbook.gif",
+        "user_id": 18
+    },
+    {
+        "id": 19,
+        "name": "luda_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/luda_flipbook.gif",
+        "user_id": 19
+    },
+    {
+        "id": 20,
+        "name": "ventronik_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/ventronik_flipbook.gif",
+        "user_id": 20
+    },
+    {
+        "id": 21,
+        "name": "dustyhenry_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/dustyhenry_flipbook.gif",
+        "user_id": 21
+    }
+]

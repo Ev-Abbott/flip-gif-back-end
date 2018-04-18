@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "test_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/test_flipbook.gif",
+        "user_id": 1
+    },
+    {
+        "id": 2,
+        "name": "mysecondacct_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/mysecondacct_flipbook.gif",
+        "user_id": 2
+    },
+    {
+        "id": 3,
+        "name": "cool_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/cool_flipbook.gif",
+        "user_id": 3
+    },
+    {
+        "id": 4,
+        "name": "a_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/a_flipbook.gif",
+        "user_id": 4
+    },
+    {
+        "id": 5,
+        "name": "b_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/b_flipbook.gif",
+        "user_id": 5
+    },
+    {
+        "id": 6,
+        "name": "everett2_flipbook",
+        "gifURL": "https://s3-us-west-2.amazonaws.com/flipgif-gif-directory/everett2_flipbook.gif",
+        "user_id": 6
+    }
+]

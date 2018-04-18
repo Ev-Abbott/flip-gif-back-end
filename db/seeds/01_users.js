@@ -1,4 +1,5 @@
-const users = require('../users.json');
+const users = require('../newUsers.json');
+
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('users').del()
